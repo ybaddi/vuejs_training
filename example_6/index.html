@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+           <p v-text="message"></p> 
+           <!-- v-html -> innerHTML
+            v-text -> textContent -->
+            <p > {{ tab[0] }} </p> 
+            <p > {{ tab[1] }} </p> 
+            <p > {{ tab[2] }} </p> 
+            <p > {{ tab[3] }} </p> 
+            <p > {{ tab["4"] }} </p> 
+            <p > {{ tab['5'] }} </p> 
+            <p > {{ tab[6] }} </p> 
+            <p > {{ etudiant }} </p> 
+            <p > {{ etudiant['nom'] }} </p>
+            <p > {{ etudiant.nom }} </p>
+            <p > {{ tab[5]%2 == 0 ? 'pair' : 'impaire' }} </p> 
+            <p > {{ tab[2]%2 == 0 ? 'pair' : 'impaire' }} </p> 
+
+
+            <p > {{ tab.length }} </p>
+            <p > {{ message.length }} </p>
+            <p > {{ Math.sqrt(9) }} </p>
+
+            <p > {{ sayHello() }} </p>
+            <p > {{ sayBonjourToMe() }} </p>
+            <p > {{ sayBonjourTo('EL IDRISSI') }} </p>
+            
+<!-- 
+            v-for-->
+
+<ul>
+    <li v-for="(item, index) in tab">
+{{ index}} : {{item}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="(item, index) of tab">
+{{ index}} : {{item}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="(item, index) of tab" :key=""index>
+{{ index}} : {{item}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="info in etudiant">
+{{info}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="(value, key)  in etudiant">
+{{key}} : {{ value}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="(value, key, index)  in etudiant">
+{{index }} - {{key}} : {{ value}}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="item  in personnes">
+{{ item .id }} - {{ item.nom }} {{ item.prenom }}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="{id , nom, prenom }  in personnes">
+{{ id }} - {{ nom }} {{ prenom }}
+        </li>
+</ul>
+
+
+<ul>
+    <li v-for="({id , nom, prenom }, index)  in personnes">
+{{ index }} - {{ id }} - {{ nom }} {{ prenom }}
+        </li>
+</ul>
+
+<ul>
+    <li v-for="item  in personnes">
+<template v-for="value in item">
+    {{ value + " " }}
+</template>
+    </li>
+</ul>
+
+
+<ul>
+    <li v-for="elt  in 4">
+{{ elt}}
+    </li>
+</ul>
+             
+
+<!--            v-if
+-->
+<ul>
+    <template v-if="tab[1] % 2 !=0">
+<li >
+{{tab[1]}} est impaire
+    </li>
+    </template>
+
+    
+</ul>
+
+
+
+<!--    v-else -->
+
+
+<ul>
+    <template v-if="tab[2] % 2 !=0">
+<li >
+{{tab[2]}} est impaire
+    </li>
+    </template>
+
+    <template v-else>
+        <li >
+        {{tab[2]}} est paire
+            </li>
+            </template>
+    
+    
+</ul>
+
+
+<ul>
+
+   <template v-for="item in tab">
+    <li v-if="item % 2 !=0">
+        {{item}} est impaire
+        </li>
+    <li v-else>
+        {{item}} est paire
+    </li>
+   </template>
+
+</ul>
+
+ <!--           v-else-if -->
+
+ <ul>
+    <template v-if="etudiant.note >=16">
+        <li >
+            tres bien
+        </li>
+    </template>
+    <template v-else-if="etudiant.note >=14">
+        <li >
+            bien
+        </li>
+    </template>
+
+    <template v-else-if="etudiant.note >=12">
+        <li >
+            Assez Bien
+        </li>
+    </template>
+
+    <template v-else-if="etudiant.note >=10">
+        <li >
+            Passable
+        </li>
+    </template>
+
+    <template v-else>
+        <li >
+            ssir semi rassek El Idrissi
+        </li>
+    </template>
+
+    
+</ul>
+
+
+ <!--            v-show
+             -->
+
+             <ul>
+                
+                    <li v-show="etudiant.note >=19">
+                        tres bien
+                    </li>
+             </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js" ></script>
+</body>
+</html>
