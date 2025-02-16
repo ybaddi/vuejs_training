@@ -29,8 +29,16 @@ const App = Vue.createApp({
             },
             font:{
                 fontWeight: 'bold'
-            }
+            },
+            disable: true,
+            messageInput: '',
+            messageTwoWay: 'Youssef BADDI'
         };
+    },
+    watch:{
+        messageTwoWay(newValue, oldValue){
+            console.log(newValue, oldValue);
+        }
     },
     methods: {
         sayHello: function(){
@@ -66,6 +74,17 @@ const App = Vue.createApp({
         },
         getStyle(){
             return { color: 'white', backgroundColor: 'red'}
+        },
+        sayBonjourToMeOnClick(){
+            alert('Hello from VueJs 3');
+        },
+        showValue(str,event){
+            console.log(str);
+            console.log(event.target.value);
+            console.log(event.data);
+        },
+        updateMessage(event){
+            this.messageInput = event.target.value;
         }
 
     }

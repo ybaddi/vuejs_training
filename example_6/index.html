@@ -344,6 +344,53 @@
             </p>
             <!-- dont use :class with template -->
         </li>
+
+        <hr>
+        <button v-on:click="sayBonjourToMeOnClick()">Say Bonjour</button>
+        <button @click="sayBonjourToMeOnClick()">Say Bonjour</button>
+
+        <!-- Exercice -->
+         <!-- deux button , one itialy disable
+          - a chaque fois que je click sur enable button activate l'autre et il se desactive
+           -->
+
+        <hr>
+        <button :disabled="disable" @click="() => disable=!disable">Button 1</button>
+        <button :disabled="!disable" @click="() => disable=!disable">Button 2</button>
+
+        <hr>
+        <div>
+            <label for="text">please put a text</label>
+            <input type="text" id="text" @input="showValue($event)" />
+        </div>
+
+        <hr>
+        <div>
+            <label for="text">please put a text</label>
+            <input type="text" id="text" @input="showValue('baddi', $event)" />
+        </div>
+
+        <hr>
+        <div>
+            <label for="text">please put a text</label>
+            <input type="text" id="text" @input="updateMessage($event)" />
+            {{ messageInput }}
+        </div>
+
+
+        <hr>
+        <div>
+            <label for="text">please put a text</label>
+            <input type="text" id="text" @keyup.enter="updateMessage($event)" />
+            {{ messageInput }}
+        </div>
+
+        <hr>
+        <div>
+            <label for="text">please put a text</label>
+            <input type="text" id="text" v-model="messageTwoWay" />
+            {{ messageTwoWay }}
+        </div>
         
  </ul>
 
