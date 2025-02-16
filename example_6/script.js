@@ -4,13 +4,25 @@ const App = Vue.createApp({
             message : "<span>Hello World</span>",
             tab: [2,3,6,7,9],
             etudiant: { id: 320123, prenom: "Nazha", nom:"EL IDRISSI", note: 18},
-            nom: "Youssef BADDI",
+            nom: "BADDI Y",
+            age: 24,
             personnes: [
                 { id: 320123, prenom: "Nazha", nom:"EL IDRISSI"},
                 { id: 320123, prenom: "Noual", nom:"Oueld elhairechu"},
                 { id: 320123, prenom: "Nourdeddine", nom:"Belguinan"},
                 { id: 320123, prenom: "Lahcen", nom:"AGLAGAL"}
-            ]
+            ],
+            link:"http://uit.ac.ma",
+            href:"http://uit.ac.ma",
+            linkTarget:{
+                href: "http://uit.ac.ma",
+                target: "_blank",
+                title: "UIT",
+                arg:"hello"
+            },
+            red: true,
+            color: 'white',
+            colorBg: 'red'
         };
     },
     methods: {
@@ -25,6 +37,16 @@ const App = Vue.createApp({
         },
         sayBonjourTo(nom){
             return `Hello ${nom}`;
+        },
+        colorCondition(){
+            var res;
+            if(this.red==false)
+                res="rouge"
+            else
+                res="bleu"
+
+            this.red= !this.red;
+            return res;
         },
 
     }

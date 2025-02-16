@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
@@ -198,6 +199,91 @@
                         tres bien
                     </li>
              </ul>
+
+
+             <ul>
+                
+                <li >
+                    <a href="{{link}}">Lien UIT university</a>
+                </li>
+                <li >
+                    <a   v-bind:href="link">Lien UIT university</a>
+                    <!-- v-bind:attribute=value -->
+                </li>
+                <li >
+                    <a   :href="link">Lien UIT university</a>
+                    <!-- :attribute=value -->
+                </li>
+                <li >
+                    <a   :href>Lien UIT university</a>
+                    <!-- :attribute=value -->
+                </li>
+
+                <li >
+                    <a  v-bind="linkTarget">Lien UIT university</a>
+                    <!-- :attribute=value -->
+                </li>
+
+                <li >
+                    <p  v-bind:class="linkClass">Lien UIT university</p>
+                    <!-- dont use :class with template -->
+                </li>
+
+                <li >
+                    <p  v-bind:class="{'rouge':true}">
+                        {{ message}}
+                    </p>
+                    <!-- dont use :class with template -->
+                </li>
+
+                <li >
+                    <p  v-bind:class="nom == 'BADDI' ? 'rouge': 'bleu'">
+                        {{ message}}
+                    </p>
+                    <!-- dont use :class with template -->
+                </li>
+
+                <li >
+                    <p  v-bind:class="colorCondition()">
+                        {{ message}}
+                    </p>
+                    <!-- dont use :class with template -->
+                </li>
+                <li >
+                    <p  v-bind:class="colorCondition()">
+                        {{ message}}
+                    </p>
+                    <!-- dont use :class with template -->
+                </li>
+                
+         </ul>
+
+         <ul>
+            <li v-for="item  in personnes" :class="colorCondition()">
+        <template v-for="value in item">
+            {{ value + " " }}
+        </template>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li v-for="(item,index)  in personnes" 
+            :class="{ 'rouge': index % 2 != 0, 'bleu': index % 2 == 0 }">
+        <template v-for="value in item">
+            {{ value + " " }}
+        </template>
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(item,index)  in personnes" 
+            :class="index % 2 == 0 ? 'bleu': 'rouge'">
+        <template v-for="value in item">
+            {{ value + " " }}
+        </template>
+            </li>
+        </ul>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
