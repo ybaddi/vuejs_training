@@ -284,6 +284,71 @@
         </template>
             </li>
         </ul>
+
+        <ul>
+            <li v-for="(item,index)  in personnes" 
+            :class="{ 'bleu': !isPair(index) ,'rouge': isPair(index) }">
+        <template v-for="value in item">
+            {{ value + " " }}
+        </template>
+            </li>
+        </ul>
+
+        <hr>
+<ul>
+        <li >
+            <p  v-bind:style="{ backgroundColor: colorBg}">
+                {{ message}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style="{ backgroundColor: colorBg , color: color }">
+                {{ message}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style="{ backgroundColor: getBgColor() , color: getColor() }">
+                {{ message}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style="getStyle()">
+                {{ message}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style="style">
+                {{ message}} {{nom}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style>
+                {{ message}} {{nom}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+
+        <li >
+            <p  v-bind:style="[style, font]">
+                {{ message}} {{nom}}
+            </p>
+            <!-- dont use :class with template -->
+        </li>
+        
+ </ul>
+
+
+        
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

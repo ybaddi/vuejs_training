@@ -22,7 +22,14 @@ const App = Vue.createApp({
             },
             red: true,
             color: 'white',
-            colorBg: 'red'
+            colorBg: 'red',
+            style:{
+                color: 'blue',
+                backgroundColor: 'red'
+            },
+            font:{
+                fontWeight: 'bold'
+            }
         };
     },
     methods: {
@@ -38,6 +45,15 @@ const App = Vue.createApp({
         sayBonjourTo(nom){
             return `Hello ${nom}`;
         },
+        isPair(index){
+            return index % 2 === 0;
+        },
+        getColor(){
+            return 'white';
+        },
+        getBgColor(){
+            return 'red';
+        },
         colorCondition(){
             var res;
             if(this.red==false)
@@ -48,6 +64,9 @@ const App = Vue.createApp({
             this.red= !this.red;
             return res;
         },
+        getStyle(){
+            return { color: 'white', backgroundColor: 'red'}
+        }
 
     }
 
