@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "serve": "concurrently \" npm run dev \" \" json-server -p 5555 db.json\" ",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -13,8 +14,10 @@
     "axios": "^1.8.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "concurrently": "^9.1.2",
     "vee-validate": "^4.15.0",
     "vue": "^3.5.13",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.5.0",
     "yup": "^1.6.1",
     "yup-locales": "^1.2.28"

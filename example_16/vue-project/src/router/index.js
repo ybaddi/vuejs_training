@@ -17,7 +17,7 @@ const routes= [
     component: HomeView,
   },
   {
-    path: '/personnes',
+    path: '/personne',
     name: 'personne-show',
     props: true,
     component: PersonneShowView
