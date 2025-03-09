@@ -17,12 +17,10 @@ const routes= [
     component: HomeView,
   },
   {
-    path: '/personne',
+    path: '/personnes',
     name: 'personne-show',
     props: true,
-    redirect: to => {
-      return {name:'adress', query: {ville:'Rabat'}}
-    }
+    component: PersonneShowView
   },
   {
     path: '/personne/:id(\\d)',
